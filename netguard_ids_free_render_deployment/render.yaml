@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: netguard-ids-demo
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: DEMO_MODE
+        value: "true"
+      - key: ENABLE_SNIFFER
+        value: "false"
+      - key: PYTHON_VERSION
+        value: "3.11.11"
